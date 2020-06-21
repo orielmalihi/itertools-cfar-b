@@ -6,6 +6,7 @@ using namespace std;
 namespace itertools
 {
 
+
     class plus
     {
     public:
@@ -28,7 +29,11 @@ namespace itertools
             iterator(typename T::iterator from, typename T::iterator to, F func) : m_begin(from),
                                                                                    m_end(to),
                                                                                    m_ifunction(func),
-                                                                                   m_current_sum(*from) {}
+                                                                                   m_current_sum(*from) { }
+
+            iterator(typename T::iterator from, typename T::iterator to) : m_begin(from),
+                                                                            m_end(to)
+                                                                                    { }                                                                       
             iterator(const iterator &other) : m_begin(other.m_begin),
                                               m_end(other.m_end),
                                               m_ifunction(other.m_ifunction),
@@ -72,7 +77,8 @@ namespace itertools
         }
         iterator end()
         {
-            return iterator{m_container.end(), m_container.end(), m_function};
+      
+            return iterator{m_container.end(), m_container.end()};
         }
     };
 } // namespace itertools
