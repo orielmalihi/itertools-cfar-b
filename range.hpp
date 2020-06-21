@@ -9,10 +9,12 @@ namespace itertools
 
     class range
     {
+    
     /* range members */
     private:
         int m_start, m_end;
     public:
+        typedef int value_type;
         /* the iterator */
         class iterator
         {
@@ -29,8 +31,8 @@ namespace itertools
     public:
         /* rane methods - decleration */
         range(int from, int to);
-        iterator begin() const ;
-        iterator end() const;
+        iterator begin()  ;
+        iterator end() ;
     };
 
     
@@ -56,11 +58,11 @@ namespace itertools
         return m_current_number!=other.m_current_number;
     }
 
-    range::iterator range::begin() const{
+    range::iterator range::begin() {
         return range::iterator{m_start};
     } 
 
-    range::iterator range::end() const{
+    range::iterator range::end() {
         return range::iterator{m_end};
     } 
  

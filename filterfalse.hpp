@@ -39,7 +39,7 @@ namespace itertools
                                               m_end(other.m_end),
                                               m_ifunction(other.m_ifunction),
                                               m_current_false(other.m_current_false) {}
-            decltype(*(m_container.begin())) operator*() const
+            typename T::value_type operator*() const
             {
 
                 return m_current_false;
@@ -68,7 +68,7 @@ namespace itertools
             typename T::iterator m_begin;
             typename T::iterator m_end;
             F m_ifunction;
-            decltype(*(m_container.begin())) m_current_false;
+            typename T::value_type m_current_false;
         };
 
     public:

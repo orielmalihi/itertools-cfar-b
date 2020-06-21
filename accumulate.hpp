@@ -33,7 +33,7 @@ namespace itertools
                                               m_end(other.m_end),
                                               m_ifunction(other.m_ifunction),
                                               m_current_sum(other.m_current_sum) {}
-            decltype(*(m_container.begin())) operator*() const
+           typename T::value_type operator*() const
             {
                 // cout << "in operator* --- " << m_current_sum << endl;
                 return m_current_sum;
@@ -59,7 +59,7 @@ namespace itertools
             typename T::iterator m_begin;
             typename T::iterator m_end;
             F m_ifunction;
-            decltype(*(m_container.begin())) m_current_sum;
+            typename T::value_type m_current_sum;
         };
 
     public:
